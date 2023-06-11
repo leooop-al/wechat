@@ -1,4 +1,4 @@
-package com.tencent.wxcloudrun.model;
+package com.tencent.wxcloudrun.count.model;
 
 import lombok.Data;
 
