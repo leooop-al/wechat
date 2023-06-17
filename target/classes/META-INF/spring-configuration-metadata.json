@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "com.tencent.wxcloudrun.chat.config.AppConfig",
+      "sourceType": "com.tencent.wxcloudrun.chat.config.AppConfig"
+    },
+    {
+      "name": "keyword.location",
+      "type": "com.tencent.wxcloudrun.chat.config.KeywordConfig",
+      "sourceType": "com.tencent.wxcloudrun.chat.config.KeywordConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.token",
+      "type": "java.lang.String",
+      "description": "令牌",
+      "sourceType": "com.tencent.wxcloudrun.chat.config.AppConfig"
+    }
+  ],
+  "hints": []
+}
