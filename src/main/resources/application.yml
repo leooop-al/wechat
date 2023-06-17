@@ -18,3 +18,8 @@ mybatis:
 
 app:
   token: atming_
+
+keyword:
+  location:
+    version: classpath:/keyword_version.txt
+    message: classpath:/keyword.json

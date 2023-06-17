@@ -9,6 +9,7 @@ import com.tencent.wxcloudrun.chat.response.BaseMessage;
 import com.tencent.wxcloudrun.chat.response.TextMessage;
 import com.tencent.wxcloudrun.chat.util.XmlUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -30,7 +31,7 @@ public class WeChatService {
     @Resource
     private AppConfig appConfig;
 
-    @Resource
+    @Autowired
     private List<WeChatMessageHandler> handlerList;
 
     private Map<WeChatMsgType, WeChatMessageHandler> messageHandlerMap;

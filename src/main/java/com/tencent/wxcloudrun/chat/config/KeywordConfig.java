@@ -8,6 +8,7 @@ import com.tencent.wxcloudrun.chat.response.BaseMessage;
 import com.tencent.wxcloudrun.chat.response.NewsMessage;
 import com.tencent.wxcloudrun.chat.response.TextMessage;
 import com.tencent.wxcloudrun.chat.util.HttpUtil;
+import com.tencent.wxcloudrun.chat.util.JsonUtil;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
@@ -157,7 +158,7 @@ public class KeywordConfig implements ApplicationContextAware, DisposableBean {
 
         private static void replaceKeywordMessageMap(String newVersion, String messageConfigStr) {
             Map<String, JsonNode> newKeywordMessageMap = Maps.newHashMap();
-            JsonNode messageConfigJson = JSONObject.parseObject(messageConfigStr, JsonNode.class);
+            JsonNode messageConfigJson = JsonUtil.jsonToObj(messageConfigStr, JsonNode.class);
             Iterator<Map.Entry<String, JsonNode>> iterator = messageConfigJson.fields();
             while (iterator.hasNext()) {
                 Map.Entry<String, JsonNode> next = iterator.next();
