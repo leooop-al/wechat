@@ -1,4 +1,4 @@
-package com.tencent.wxcloudrun.chat.remote;
+package com.tencent.wxcloudrun.chat.config;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.JsonNode;
