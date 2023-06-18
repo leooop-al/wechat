@@ -20,7 +20,7 @@ public class ChatController {
     @Resource
     private WeChatService weChatService;
 
-    @RequestMapping(value = "receiveMessage")
+    @RequestMapping(value = "/receiveMessage")
     public Object receiveMessage(@RequestBody ReceiveMessageRequest request, HttpServletRequest servletRequest) {
         String signature = request.getSignature();
         String timestamp = request.getTimestamp();
