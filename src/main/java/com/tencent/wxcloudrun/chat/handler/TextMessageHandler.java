@@ -1,5 +1,6 @@
 package com.tencent.wxcloudrun.chat.handler;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tencent.wxcloudrun.chat.config.KeywordConfig;
 import com.tencent.wxcloudrun.chat.domain.WeChatMessage;
 import com.tencent.wxcloudrun.chat.enums.WeChatMsgType;
@@ -25,7 +26,7 @@ public class TextMessageHandler implements WeChatMessageHandler {
 
     @Override
     public BaseMessage processMessage(WeChatMessage weChatMessage) {
-        log.info("收到用户文本信息:{}", weChatMessage);
+        log.info("[TextMessageHandler]processMessage | 收到用户文本信息:{}", JSONObject.toJSONString(weChatMessage));
 
         String fromUserName = weChatMessage.getFromUserName();
         String toUserName = weChatMessage.getToUserName();

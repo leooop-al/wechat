@@ -1,5 +1,6 @@
 package com.tencent.wxcloudrun.chat.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tencent.wxcloudrun.chat.request.ReceiveMessageRequest;
 import com.tencent.wxcloudrun.chat.service.WeChatService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,16 +22,18 @@ public class ChatController {
     private WeChatService weChatService;
 
     @RequestMapping(value = "/chat/receiveMessage")
-    public Object receiveMessage(String signature, String timestamp, String nonce, String echoStr,
+    public Object receiveMessage(@RequestBody ReceiveMessageRequest request,
                                  HttpServletRequest servletRequest) {
 
-        log.info("[ChatController]receiveMessage | start | signature:{} timestamp:{} nonce:{} echoStr:{}",
-                signature, timestamp, nonce, echoStr);
+        log.info("[ChatController]receiveMessage | start | body:{}", JSONObject.toJSONString(request));
         Object result;
         if (HttpMethod.GET.name().equals(servletRequest.getMethod())) {
             // 验证签名是否有效
-            if (weChatService.checkSignature(signature, timestamp, nonce)) {
-                result = echoStr;
+//            if (weChatService.checkSignature(signature, timestamp, nonce)) {
+//            result = request;
+
+            if (weChatService.checkSignature(request.getSignature(), request.getTimestamp(), request.getNonce())) {
+                result = request.getEchostr();
             } else {
                 result = "你是谁？你想干嘛";
             }
