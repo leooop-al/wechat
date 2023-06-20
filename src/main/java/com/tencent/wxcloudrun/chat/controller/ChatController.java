@@ -23,6 +23,9 @@ public class ChatController {
     @RequestMapping(value = "/chat/receiveMessage")
     public Object receiveMessage(String signature, String timestamp, String nonce, String echoStr,
                                  HttpServletRequest servletRequest) {
+
+        log.info("[ChatController]receiveMessage | start | signature:{} timestamp:{} nonce:{} echoStr:{}",
+                signature, timestamp, nonce, echoStr);
         Object result;
         if (HttpMethod.GET.name().equals(servletRequest.getMethod())) {
             // 验证签名是否有效
